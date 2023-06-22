@@ -1,0 +1,404 @@
+
+selenium jarfiles to add in eclipse project
+
+can i installJava SE Development kit
+selenium
+
+to install Java SE Development Kit -have an oracle account
+
+-------------------------------------------------------
+
+web driver
+get commands
+Locator commands
+Navigation commands
+Browser commands
+
+
+---------------------------------------------------------------------------------
+Java se8 development kit -using oracle account un-mailid,pwd-Sailaja@15
+
+to check cmd prmpt - java -version
+environment variables
+
+eclipse
+
+
+selinium-firefox-se ide
+
+-------------------------------------------------------------------------------------------------------------
+
+selenium features-
+selinium reusable script,simple to understand
+Programming Languages: C#, Java, Python, PHP, Ruby, Perl, and JavaScript
+Operating Systems: Android, iOS, Windows, Linux, Mac, Solaris.
+Browsers: Google Chrome, Mozilla Firefox, Internet Explorer, Edge, Opera, Safari, etc.
+
+creating testcases manually-
+//add external jars-unable to add in eclipse-done
+selenium webdriver - first case
+
+------------------------------------------------------------------------------------------------
+How to setup selenium webdriver in eclipse
+launch eclipse
+create workspace in eclipse
+create a new java project 
+create package and class
+
+To adding drivers and jars to java project(not class and package)
+add selenium jars to the java project in eclipse - java build path and add externals jars
+                     or
+create 2 folders with name drivers and jars in project 
+driver folder - download latest version chromedriver jars from google and extract ,copy that extracted file to driver folder in eclipse.
+jars folder - download latest selenium jars from google and extract all,copy selenium files to jarfolder in eclipse and open lib folder from 
+extracted files copy all files to jarfolder in eclipse.
+->Add all jar files to buildpath.
+------------------------------------------------
+maven project- file-project-maven-maven project
+catalog-internal-quickstart-next
+groupid     - abc
+artifactid  -abc
+in POM -->  add mvn repositories - go to url mvn repositories -selinium - latest version 
+add in POM after dependency
+-----------------------------------------------------------------------------------------------------
+
+selenium WebDrivers Commands
+-----------------------------
+Browser commands- get    (String args[]) :void-WebDriver
+----------------   |         |             |
+           method name parameterdatatype return type
+
+.get(String url); = .get(" "); //
+.getTitle();  //
+.getCurrentUrl();   //
+.getPageSource();   //
+.close();   //
+Thread.sleep(ms);  //
+.quit();  //closes all windows opened by the webdriver.
+-------------------------------------------------------
+Navigation commands-The navigate interface exposes the ability to move backwards and forwards in the browser’s history.
+Note: Only methods that are followed by Navigation keyword are belongs to navigate. Rest followed by Object keyword are the generic methods gets from Object Class in Java. 
+driver.navigate().to("https://www.DemoQA.com");  //to load website address
+driver.navigate().forward();  //This method does the same operation as clicking on the Forward Button of any browser.
+driver.navigate().back();   //This method does the same operation as clicking on the Back Button of any browser. 
+driver.navigate().refresh(); //This method Refresh the current page.
+// getting error while executing
+----------------------------------------------------------
+webelement commands-
+webelement-WebElement represents an HTML element. HTML documents are made up by HTML elements. HTML elements are written with a start tag, with an end tag, with the content in between: <tagname> content </tagname>
+The HTML element is everything from the start tag to the end tag: <p> My first HTML paragraph. </p>
+
+---------------------------------------------------------------------------
+Find Element and Find Elements in Selenium-
+findElement: A command used to uniquely identify a web element within the web page.
+-Returns the first matching web element if multiple web elements are discovered by the locator
+-Throws NoSuchElementException if the element is not found
+-Detects a unique web element.
+syntax-WebElement elementName = driver.findElement(By.LocatorStrategy("LocatorValue"));
+findElements: A command used to identify a list of web elements within the web page.
+-Returns a list of multiple matching web elements
+-Returns an empty list if no matching element is found
+-Returns an empty list if no matching element is found
+syntax-List<WebElement> elementName = driver.findElements(By.LocatorStrategy("LocatorValue"));
+
+
+---------------------------------------------------------------------
+Dropdown- The 'Select' class in Selenium WebDriver is used for selecting and deselecting option in a dropdown. 
+-- import org.openqa.selenium.support.ui.Select;  -
+selectByIndex - dropdown.selectByIndex(5);-- when you multiple choose among anyone--0,1,2--
+selectByValue - dropdown.selectByValue("Database");  
+selectByVisibleText - dropdown.selectByVisibleText("Database Testing");  
+ eg:<option value="ALBANIA">ALBANIA</option>
+                  |              |
+            selectbyvalue   visibletext
+
+
+// WebElement dropdown=driver.findElement(By.xpath("//select[@id=\"searchDropdownBox\"]"));
+
+        Select se =new Select(dropdown);
+
+ 
+
+        se.selectByVisibleText("Alexa Skills");
+        se.selectByIndex(2);   //
+
+deselect options for multiple selection only
+
+-------------------------------------------------------------------------------------------
+Firstly, test manually like observe the step by step to write script(usage of keyboard and mouse) clicking, moving down etc
+Action class-
+1. Import the Actions and Action classes.
+2.create object for actionS class > Actions ac = new Actions(driver);
+3.use actions using action,Action Class, actually it is not a class but an Interface.
+It is only used to represent the single user interaction to perform the series of action items build by Actions class.
+ -->Action seriesOfActions = builder
+		                  .moveToElement(useremail)
+		                   .click()
+		                   .keyDown(useremail, Keys.SHIFT)
+                               .build();
+
+4.seriesOfActions.perform();
+		  
+
+-->ac.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).build().perform();
+
+
+-----------------------------------------------------------------------------------------------
+Selenium Wait()-  is used to check the performance of an application,
+In automation testing, wait commands direct test execution to pause for a certain length of time before moving onto the next step.
+different applications take different time for loading,but we are giving to load in particular span of time.
+
+-->Implicit wait and explicit wait
+1.The Implicit Wait in Selenium is used to tell the web driver to wait for a certain amount of time before it throws a “No Such Element Exception”.
+The default setting is 0. Once we set the time, the web driver will wait for the element for that time before throwing an exception.
+ >   driver.manage().timeouts().implicitlyWait(TimeOut, TimeUnit.SECONDS);
+ here we are giving globally
+
+2.The Explicit Wait in Selenium is used to tell the Web Driver to wait for certain conditions.
+or maximum time exceeded before throwing “ElementNotVisibleException” exception.
+Once we declare explicit wait we have to use “ExpectedConditions”.
+ > WebDriverWait wait = new WebDriverWait(WebDriverRefrence,TimeOut);--->this is used when we have constructor
+> WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));-->this is fine
+
+
+----------------------------------------------------------------------------------
+XPATH
+where -The XML Path Language (XPath) is used to uniquely identify or address parts of an XML document. An XPath expression can be used to search through an XML document, and extract information from any part of the document, such as an element or attribute (referred to as a node in XML) in it.
+how to use-Basic XPath: XPath expression select nodes or list of nodes on the basis of attributes like ID , Name, Classname, etc. from the XML document as illustrated below. ...
+Contains(): Contains() is a method used in XPath expression. ...
+Using OR & AND:
+
+Difference between Relative and Absolute Xpath?
+An absolute xpath starts with the / symbol. One drawback with the absolute xpath is that if there is any change in attributes beginning from the root to the element, our absolute xpath will become invalid.
+The relative xpath starts by referring to the element that we want to identify and not from the root node.
+
+
+XPATH in selenium-XPath in Selenium is a technique that allows you to navigate the structure of a webpage’s HTML. XPath is a syntax for finding elements on web pages. Using UXPath in Selenium helps find elements that are not found by locators such as ID, class, or name. XPath in Selenium can be used on both HTML and XML documents.
+XPATH -XPath is defined as XML path. It is a syntax or language for finding any element on the web page using the XML path expression. XPath is used to find the location of any element on a webpage using HTML DOM structure.
+ XPath is used to find an element on the web page.
+CSS path also locates elements having no name, class, or ID.
+XPath=//tagname[@attribute='value']
+
+// : Select current node.
+Tagname: Tagname of the particular node.     like input,*,a,etc
+@: Select attribute.
+Attribute: Attribute name of the node.
+Value: Value of the attribute.
+
+Two types of Xpath- Absolute Xpath,Relative Xpath
+Absolute Xpath-Absolute XPath is the direct way to find the element. But the disadvantage of the absolute XPath is that if there are any changes made in the path of the element then that XPath fails.
+  /html/body/div[1]/div/div[2]/header/div/div[2]/a/img
+
+Relative Xpath-For Relative XPath, the path starts from the middle of the HTML DOM structure. It starts with the double forward slash (//), which means it can search the element anywhere at the webpage.
+  //*[@id="block-perfecto-main-menu"]/ul/li[6]/a
+----------------------------------------------------------------------------
+scrpting code who will write- before we going to test --html code is already their
+
+***ab,re-one eg
+how to write absolute eg in eclipse
+we are testing for creating a website or we r testing to giving our credentials to website
+
+u used values as code but in scenario input name,text
+
+vegetable is a element  or elements - depends
+if u need all data in the item use findelements 
+if u need particular one among all findelement
+vegetables{ --class
+pototo()-method
+tomoto()-method
+onion()-method
+
+firstSelectedOption- it will store this vaue in variable , then will return 
+WebElement firstSelectedOption = drpdown.getFirstSelectedOption();
+	String selectvalue=firstSelectedOption.getText();
+    System.out.println("firstselectedoption " + selectvalue);
+
+deselect - will work for multiple selection
+
+driver.close(); - add thread.sleep(); for waiting chrome to run if exception throws add
+
+
+*tutorial point-//ul[@class='toc reading']/li
+
+github personalact
+multiselect - debug
+radiobutton
+---------------------------------------------------------------------
+for text don't need @ need ()
+for attributes(name,id,..) need @ dont need ()
+
+if xpath matches for two elements-(//input[@id='something'])[1] and the second field's xpath as (//input[@id='something'])[2] in object repository.
+Xpath=//*[@type='submit' or @name='btnReset']
+Xpath=//input[@type='submit' and @name='btnLogin']  -- used for same line multiple elements
+Xpath=//label[starts-with(@id,'message')]
+
+
+Q:evrytime xpath not name,id,etc
+A:not have name,id,class,-go xpath  =//*[@type='name']
+//button[text()=' Save ']
+Q:what is contains and it uses
+A:(//*[contains(@name,'btn')] )[2] -using array of nth no
+A://input[contains(@name,'btn')][2] -when it followed by input
+
+note://* is used when it have multiple mathces - if not simply  give "name"
+for links-//a[@href='http://demo.guru99.com/'] if not matches
+
+input is used for when it follow input tagname
+
+Xpath=//*[@type='text']//following::input[1]--when it follows input tagname
+
+Xpath=//*[text()='Enterprise Testing']//ancestor::div--The ancestor axis selects all ancestors element (grandparent, parent, etc.)
+Xpath=//*[text()='Enterprise Testing']//ancestor::div[1]-
+Xpath=//*[@id='java_technologies']//child::li--all children elements of the current node 
+Xpath=//*[@type='submit']//preceding::input--it identifies all the input elements before “LOGIN” button that is Userid and password input element.
+ xpath=//*[@type='submit']//following-sibling::input--Siblings are at the same level of the current node 
+Xpath=//*[@id='rt-feature']//parent::div--
+Xpath =//*[@type='password']//self::input--
+Xpath=//*[@id='rt-feature']//descendant::a--
+
+how to write xpath for links dont have any class,id,etc and dont want to use linktext?
+//a[text()='textname'] - without contains
+//a[contains(text(),'Features')] - with contains
+for button
+//button[@type='button' and @class='btn']
+//button[contains(text(),'sign up')]
+---------------------------------------------------------------------------------
+follow same procedures for practice , in real we r writing multiple programs using objects we call
+collections- set,arraylist,hashmap --read
+-----------------------------------------------------------------------------------------------
+static dropdown-Selenium can handle static dropdowns with the help of the Select class. A dropdown is identified with select tagname and its options are represented with the tagname option. 
+---------------- or it will have particular words when we type it will have constants words with the letter. 
+eg;<select name="" class="inpDrpdwn ng-pristine ng-valid ng-not-empty ng-touched" id="optClass" ng-model="AirReq.Cabin" ng-init="AirReq.Cabin='0'" onchange="SetCabinCookie()">
+                                    <option class="blck5" value="0" ng-selected="true" selected="selected"> Economy</option>
+                                    <option class="blck5" value="4"> Prem. Economy</option>
+                                    <option class="blck5" value="2"> Business</option>
+                                    <option class="blck5" value="1">First</option>
+                                </select>
+
+
+Dynamic dropdown-when we are searching for an element, basically types starting letter its popups the matching words with that letter.
+----------------- -
+
+makemy trip - dynamic dropdown  = query i need to do debug
+
+create list of webelemts = auto
+add for(),
+ gettext, -if matches click
+ add click 
+
+how to handle dynamicdropdown
+
+google -searching amazon jobs -type amazon and inspect- dynamic dropdown
+
+--------------------------------------------------------------------------
+Handling tabs-
+we use this commands based on situation
+          driver.get(url);
+	    driver.getCurrentUrl();
+	    driver.getPageSource();
+	    driver.getTitle();
+	    driver.getWindowHandle(); -
+	    driver.getWindowHandles();
+
+how to handle multiple tabs in selenium
+navigate()
+title
+storing
+comparing
+
+
+naukari - closing particluar tab when we opened multiple tabs
+
+------------------------------------------------------------------------
+Alerts-
+An Alert in Selenium is a small message box which appears on screen to give the user some information or notification. 
+It notifies the user with some specific information or error, asks for permission to perform certain tasks and it also provides warning messages as well.
+-> simple alert-The simple alert class in Selenium displays some information or warning on the screen.
+->Prompt Alert-This Prompt Alert asks some input from the user and Selenium webdriver can enter the text using sendkeys(” input…. “).
+-> Confirmation Alert-This confirmation alert asks permission to do some type of operation.
+
+Alert alert=driver.switchTo().alert();   - it is to switch alert then continue with below based on scenarios
+
+1) void dismiss() // To click on the ‘Cancel’ button of the alert.
+driver.switchTo().alert().dismiss();
+
+2) void accept() // To click on the ‘OK’ button of the alert.
+driver.switchTo().alert().accept();
+
+3) String getText() // To capture the alert message.
+driver.switchTo().alert().getText();
+
+4) void sendKeys(String stringToSend) // To send some data to alert box.
+driver.switchTo().alert().sendKeys("Text");
+
+
+popups and alerts are same
+
+--------------------------------------------------------------------------------------
+radiobutton-A Radio Button is an HTML element, which allows the user to select only one of the given options.
+Boolean return type is  (true/false) for below statements
+
+WebElement radioNo = driver.findElement(By.cssSelector("input[id='noRadio']"));
+boolean selectNo = radioEle.isDisplayed();     // T/F
+
+isSelected(): Checks whether a radio button is selected or not.
+isDisplayed(): Checks whether a radion button is displayed on the web page or not.
+isEnabled(): Checks whether a radion button is enabled or not
+
+
+e.g:WebElement green=driver.findElement(By.xpath("//span[text()='Green']"));
+		green.click();
+		if(green.isDisplayed()) {
+			System.out.println("yes");
+		}
+		else {
+			System.out.println("no");
+		} 
+: 2ways we can write
+note:it will show the element which we have selected
+----------------------------------------------------------------------------------
+checkboxes-The checkbox is a GUI element that allows the user to make certain choices for the given options. 
+Users may get a list of choices, and the checkbox records the choices made by the user. The checkbox allows users to select either single or multiple choices out of the given list.
+Apart from "Checked " and "UnChecked", sometimes applications provide a tri-state/intermediate, which we generally use when a neutral answer needs to provide for an option or which is an auto-selection for a parent when the child checkbox is selected.
+
+//Selecting the first checkbox using XPath
+driver.findElement(By.xpath("//label[text()='Sports']")).click();
+
+//Selecting the second checkbox using Xpath
+driver.findElement(By.xpath("//label[text()='Reading']")).click();
+
+isSelected(): Checks whether a checkbox is selected or not.
+isDisplayed(): Checks whether a checkbox displays on the web page or not.
+isEnabled(): Checks whether a checkbox is enabled or not
+
+
+note:it will show the element which we have selected
+--------------------------------------------------------------------------------
+Selenium webtables
+-------------------
+driver.get("https://the-internet.herokuapp.com/");
+		WebElement link=driver.findElement(By.linkText("Sortable Data Tables"));
+		link.click();
+		WebElement table=driver.findElement(By.id("table1"));
+		WebElement firstrow=table.findElement(By.xpath("//*[@id='table1']/tbody/tr[1]/td[4]"));
+		String r1=firstrow.getText();
+		System.out.println(r1);
+		WebElement secondrow=table.findElement(By.xpath("//*[@id='table2']/tbody/tr/td[3]"));
+		String r2=secondrow.getText();
+		System.out.println(r2);
+-----------------------------------------------------------------------------------------------------------------
+Selenium framework-
+
+
+
+
+
+
+
+
+
+
+
+
+
+

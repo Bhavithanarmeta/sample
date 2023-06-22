@@ -1,0 +1,26 @@
+1. Data types
+2. Strings 
+3. Arrays 
+4. Objects
+5. Constructor
+6. Java pillars -polymorphism,interface,abstraction,encapsulation,inheritance
+
+7. Selenium + collections
+ - Framework overview
+ - Page object model
+ - Maven - maven repository-selenium java- select 4.5.3 version-
+ - Jars
+ - cucumber
+ - Debugging
+ - Report generation
+ 
+8. API using postman
+9. GIT merge + pull push
+
+postman
+-->performing automation to test websites
+
+Alerts- 
+radiobutton -d
+checkbox -d
+calendar handling
