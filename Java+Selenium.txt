@@ -4,8 +4,10 @@
 4. Objects
 5. Constructor
 6. Java pillars -polymorphism,interface,abstraction,encapsulation,inheritance
+7.collections
 
-7. Selenium + collections
+
+8. Selenium 
  - Framework overview
  - Page object model
  - Maven - maven repository-selenium java- select 4.5.3 version-
@@ -14,13 +16,48 @@
  - Debugging
  - Report generation
  
-8. API using postman
-9. GIT merge + pull push
+9. API using postman
+10. GIT merge + pull push
 
 postman
 -->performing automation to test websites
 
-Alerts- 
-radiobutton -d
-checkbox -d
-calendar handling
+selenium : incomplete topics
+Handling calendars
+WebTables
+Actions  
+Waits  
+multiselect - 
+autosuggestions
+collections- set,arraylist,hashmap --read -
+
+selinium : completed
+commands-get commands,Locator commands,Navigation commands,Browser commands
+webdriver
+Findelement,findelements
+Xpath 
+Dropdown  
+Radiobutton
+checkboxes
+Handling tabs
+alerts /popups
+iframes in seleniums
+chromeoptions
+
+
+
+QA:
+What is severity and priorities?
+how to handle 10 windows at a time using selnium ?  - Open multiple child windows,Iterate through child windows.
+/*
+class- a group of objects is called class, we use class for creating variables declaring objects 
+
+objects -is a member of java class,each object has an identity , a behaviour and a state.The state of an object is stored in fields (variables), while methods (functions) display the object's behavior. Objects are created at runtime from templates, which are also known as classes.
+
+action - is a interface - single user interactions-using implements we call action variable
+actions -is a class   
+-> The Java collections framework is a set of classes and interfaces that implement commonly reusable collection data structures.
+ */
+
+
+
